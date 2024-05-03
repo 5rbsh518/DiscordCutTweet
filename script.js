@@ -39,10 +39,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     sendButton.addEventListener("click", (e) => {
       e.preventDefault()
-      console.log(time.value)
       let questions = document.querySelectorAll("input.question ")
       questions.forEach((e) => {
-        console.log(e.value)
         myQut.push(e.value)
       }) 
       console.log(myQut)
@@ -70,29 +68,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       .catch(console.error)
 
   api = {
-    getMessages(channelId) {
-      return apiCall(`/channels/${channelId}/messages?limit=8`)
-    },
-  
-    replayMessages(chennelId, messageId, message, tts) {
-      return apiCall(`/channels/${chennelId}/messages`, { content: message,message_reference: {chennel_id: chennelId, message_id: messageId} , tts: !!tts }, 'POST')
-    },
-  
     sendMessage(channelId, message, tts) {
       return apiCall(`/channels/${channelId}/messages`, { content: message, tts: !!tts }, 'POST')
-    },
-  
-    editMessage(channelId, messageId, newMessage) {
-      return apiCall(`/channels/${channelId}/messages/${messageId}`, { content: newMessage }, 'PATCH')
-    },
-  
-    deleteMessage(channelId, messageId) {
-      return apiCall(`/channels/${channelId}/messages/${messageId}`, null, 'DELETE')
     }
   }
-function addQuestion(){
-    
-}
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
