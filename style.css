@@ -1,0 +1,23 @@
+body,
+html {
+  background-color: #202020;
+}
+nav {
+  background-color: #303030;
+}
+.half-grey-bg {
+  background-color: #303030;
+}
+.bg-body-tertiary {
+  background-color: #303030;
+}
+.navbar {
+  border-radius: 5px;
+}
+.navbar-brand {
+  color: white !important;
+}
+
+* {
+  color: white;
+}
